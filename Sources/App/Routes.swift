@@ -20,6 +20,11 @@ extension Droplet {
 
         get("description") { req in return req.description }
         
-        try resource("posts", PostController.self)
+        // adding the routes to instance of our droplet
+        let postController = PostController(drop: self)
+        postController.addRoutes()
+        let tagController = TagController(drop: self)
+        tagController.addRoutes()
+        
     }
 }
