@@ -20,6 +20,7 @@ extension Config {
     private func setupPreparations() throws {
         preparations.append(Post.self)
         preparations.append(Tag.self)
+        preparations.append(Pivot<Post, Tag>)
         
     }
 }

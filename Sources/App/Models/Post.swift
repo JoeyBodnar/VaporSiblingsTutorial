@@ -10,6 +10,21 @@ import Foundation
 import Vapor
 import FluentProvider
 
+// relating FROM the Post type
+// TO the Tag type
+// via/through the post_tag pivot table
+extension Post {
+    var tags: Siblings<Post, Tag, Pivot<Post, Tag>> {
+        return siblings()
+    }
+}
+
+extension Tag {
+    var posts: Siblings<Tag, Post, Pivot<Tag, Post>> {
+        return siblings()
+    }
+}
+
 
 
 final class Post: Model {
